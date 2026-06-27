@@ -119,6 +119,18 @@ TEGRO_API_KEY=... npm run dev   # run from source (tsx)
 - 📖 [Model Context Protocol](https://modelcontextprotocol.io)
 - 🐛 [Issues](https://github.com/TegroTON/mcp-money/issues)
 
+## Community
+
+Follow Tegro.Money:
+
+- 💬 Telegram — [@TegroMoney](https://t.me/TegroMoney) · bot: [@TegroMoneybot](https://t.me/TegroMoneybot)
+- 𝕏 Twitter/X — [@TegroTON](https://twitter.com/TegroTON)
+- 🟦 VK — [vk.com/tegro](https://vk.com/tegro)
+- 💼 LinkedIn — [tegromoney](https://www.linkedin.com/company/tegromoney/)
+- 📸 Instagram — [@tegromoney](https://www.instagram.com/tegromoney/)
+- ✍️ Teletype — [@tegro](https://teletype.in/@tegro)
+- 🐙 GitHub — [TegroTON](https://github.com/TegroTON)
+
 ## License
 
 [MIT](./LICENSE) © Tegro.Money
