@@ -18,13 +18,13 @@
     "ai-tools",
     "llm"
   ],
-  "homepage": "https://github.com/TegroTON/mcp-money#readme",
+  "homepage": "https://github.com/TegroTON/tegro-money-mcp#readme",
   "bugs": {
-    "url": "https://github.com/TegroTON/mcp-money/issues"
+    "url": "https://github.com/TegroTON/tegro-money-mcp/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TegroTON/mcp-money.git"
+    "url": "git+https://github.com/TegroTON/tegro-money-mcp.git"
   },
   "license": "MIT",
   "author": "Tegro.Money",

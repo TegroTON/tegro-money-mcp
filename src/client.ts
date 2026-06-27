@@ -53,6 +53,11 @@ export class TegroClient {
         headers: {
           Authorization: `Bearer ${sign}`,
           "Content-Type": "application/json",
+          // A descriptive UA — the API's CDN (Cloudflare) rejects requests with the
+          // default runtime user-agent (error 1010).
+          "User-Agent":
+            "Mozilla/5.0 (compatible; tegro-money-mcp/0.1; +https://github.com/TegroTON/tegro-money-mcp)",
+          Accept: "application/json",
         },
         body,
       });

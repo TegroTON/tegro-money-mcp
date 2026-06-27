@@ -1,7 +1,7 @@
 # Tegro.Money MCP Server
 
 [![npm version](https://img.shields.io/npm/v/tegro-money-mcp.svg)](https://www.npmjs.com/package/tegro-money-mcp)
-[![CI](https://github.com/TegroTON/mcp-money/actions/workflows/ci.yml/badge.svg)](https://github.com/TegroTON/mcp-money/actions/workflows/ci.yml)
+[![CI](https://github.com/TegroTON/tegro-money-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/TegroTON/tegro-money-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-server-blue.svg)](https://modelcontextprotocol.io)
 
@@ -106,7 +106,7 @@ Authorization: Bearer <sign>
 ## Development
 
 ```bash
-git clone https://github.com/TegroTON/mcp-money.git
+git clone https://github.com/TegroTON/tegro-money-mcp.git
 cd mcp-money
 npm install
 npm run build            # compile to dist/
@@ -117,7 +117,7 @@ TEGRO_API_KEY=... npm run dev   # run from source (tsx)
 
 - 🌐 [Tegro.Money](https://tegro.money) · [API docs](https://tegro.money/api/)
 - 📖 [Model Context Protocol](https://modelcontextprotocol.io)
-- 🐛 [Issues](https://github.com/TegroTON/mcp-money/issues)
+- 🐛 [Issues](https://github.com/TegroTON/tegro-money-mcp/issues)
 
 ## Community
 
