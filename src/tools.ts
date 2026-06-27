@@ -7,7 +7,9 @@ const json = (data: unknown) => ({
 });
 
 const fail = (e: unknown) => ({
-  content: [{ type: "text" as const, text: `Error: ${(e as Error).message}` }],
+  content: [
+    { type: "text" as const, text: `Error: ${e instanceof Error ? e.message : String(e)}` },
+  ],
   isError: true,
 });
 
@@ -62,7 +64,7 @@ export function registerTools(server: McpServer, client: TegroClient): void {
         return json(
           await client.call("orders", {
             shop_id: client.resolveShopId(shop_id),
-            ...(page ? { page } : {}),
+            ...(page !== undefined ? { page } : {}),
           }),
         );
       } catch (e) {
@@ -103,7 +105,7 @@ export function registerTools(server: McpServer, client: TegroClient): void {
         return json(
           await client.call("withdrawals", {
             shop_id: client.resolveShopId(shop_id),
-            ...(page ? { page } : {}),
+            ...(page !== undefined ? { page } : {}),
           }),
         );
       } catch (e) {
@@ -141,7 +143,7 @@ export function registerTools(server: McpServer, client: TegroClient): void {
     },
     async ({ from, to }) => {
       try {
-        return json(await client.call("rates", { ...(from ? { from } : {}), ...(to ? { to } : {}) }));
+        return json(await client.call("rates", { ...(from !== undefined ? { from } : {}), ...(to !== undefined ? { to } : {}) }));
       } catch (e) {
         return fail(e);
       }

@@ -24,6 +24,6 @@ async function main(): Promise<void> {
 }
 
 main().catch((err) => {
-  console.error(`Fatal: ${(err as Error).message}`);
+  console.error("Fatal startup error:", err);
   process.exit(1);
 });
