@@ -1,5 +1,5 @@
 {
-  "name": "tegro-money-mcp",
+  "name": "@tegroton/tegro-money-mcp",
   "version": "0.1.0",
   "description": "MCP server for Tegro.Money — connect Claude, Cursor and other AI tools to the Tegro.Money payment API (balances, shops, orders, payouts, rates). Read-only, secure, your API key never leaves your machine.",
   "keywords": [
@@ -56,5 +56,8 @@
     "@types/node": "^20.14.0",
     "tsx": "^4.16.0",
     "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

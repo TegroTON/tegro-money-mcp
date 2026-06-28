@@ -2,7 +2,7 @@
   "mcpServers": {
     "tegro-money": {
       "command": "npx",
-      "args": ["-y", "tegro-money-mcp"],
+      "args": ["-y", "@tegroton/tegro-money-mcp"],
       "env": {
         "TEGRO_API_KEY": "your_rest_api_key",
         "TEGRO_SHOP_ID": "your_shop_id_optional"

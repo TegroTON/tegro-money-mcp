@@ -1,6 +1,6 @@
 # Tegro.Money MCP Server
 
-[![npm version](https://img.shields.io/npm/v/tegro-money-mcp.svg)](https://www.npmjs.com/package/tegro-money-mcp)
+[![npm version](https://img.shields.io/npm/v/@tegroton/tegro-money-mcp.svg)](https://www.npmjs.com/package/@tegroton/tegro-money-mcp)
 [![CI](https://github.com/TegroTON/tegro-money-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/TegroTON/tegro-money-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-server-blue.svg)](https://modelcontextprotocol.io)
@@ -40,7 +40,7 @@ Add to your `claude_desktop_config.json` (macOS: `~/Library/Application Support/
   "mcpServers": {
     "tegro-money": {
       "command": "npx",
-      "args": ["-y", "tegro-money-mcp"],
+      "args": ["-y", "@tegroton/tegro-money-mcp"],
       "env": {
         "TEGRO_API_KEY": "your_rest_api_key",
         "TEGRO_SHOP_ID": "your_shop_id_optional"
@@ -61,7 +61,7 @@ Restart Claude Desktop — the tools appear under the 🔌 menu.
   "mcpServers": {
     "tegro-money": {
       "command": "npx",
-      "args": ["-y", "tegro-money-mcp"],
+      "args": ["-y", "@tegroton/tegro-money-mcp"],
       "env": { "TEGRO_API_KEY": "your_rest_api_key" }
     }
   }
@@ -73,7 +73,7 @@ Restart Claude Desktop — the tools appear under the 🔌 menu.
 Run over stdio:
 
 ```bash
-TEGRO_API_KEY=your_rest_api_key npx -y tegro-money-mcp
+TEGRO_API_KEY=your_rest_api_key npx -y @tegroton/tegro-money-mcp
 ```
 
 ## Configuration
