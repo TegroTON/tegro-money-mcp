@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Tegro.Money support
+    url: https://t.me/TegroMoney
+    about: Questions about the Tegro.Money service or your account (not this tool).
+  - name: Security report
+    url: https://github.com/TegroTON/tegro-money-mcp/security/policy
+    about: Please report vulnerabilities privately — see SECURITY.md.
