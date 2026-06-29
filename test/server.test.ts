@@ -93,6 +93,17 @@ test("throws on non-JSON response", async () => {
   }
 });
 
+test("refuses a non-2xx HTTP status even if the body claims success", async () => {
+  const restore = mockFetch(async () =>
+    new Response(JSON.stringify({ type: "success", data: {} }), { status: 500 }),
+  );
+  try {
+    await assert.rejects(() => new TegroClient(cfg).call("balance"), /HTTP 500/);
+  } finally {
+    restore();
+  }
+});
+
 test("throws on success with no data (instead of returning undefined)", async () => {
   const restore = mockFetch(async () => new Response(JSON.stringify({ type: "success" }), { status: 200 }));
   try {

@@ -1,4 +1,4 @@
-import { createHmac } from "node:crypto";
+import { createHmac, randomInt } from "node:crypto";
 import type { Config } from "./config.js";
 
 /** Safe message extraction — handles non-Error throws (strings, DOMException, …). */
@@ -19,16 +19,19 @@ function errMsg(e: unknown): string {
  */
 export class TegroClient {
   private lastNonce = 0;
+  /** Per-process random offset (0–999) so two processes sharing a key don't collide. */
+  private readonly salt = randomInt(0, 1000);
 
   constructor(private readonly cfg: Config) {}
 
   /**
-   * Strictly increasing, unique-per-request nonce. Based on the ms clock, but
-   * bumped by at least 1 on every call so it can never repeat or go backwards —
-   * even for many calls within the same millisecond or under a backward clock step.
+   * Strictly increasing, unique-per-request nonce: a microsecond-scale clock value
+   * (ms × 1000) plus a per-process salt, bumped by ≥1 on every call. It never repeats
+   * or goes backwards within a process, and the salt avoids collisions across separate
+   * processes that share the same API key.
    */
   private nextNonce(): number {
-    const n = Math.max(Date.now(), this.lastNonce + 1);
+    const n = Math.max(Date.now() * 1000 + this.salt, this.lastNonce + 1);
     this.lastNonce = n;
     return n;
   }
@@ -60,6 +63,8 @@ export class TegroClient {
           Accept: "application/json",
         },
         body,
+        // Don't hang forever on an unresponsive upstream.
+        signal: AbortSignal.timeout(30_000),
       });
     } catch (e) {
       throw new Error(`Network error calling ${endpoint}: ${errMsg(e)}`, { cause: e });
@@ -85,6 +90,10 @@ export class TegroClient {
       throw new Error(
         json.desc || `Tegro.Money API error on ${endpoint} (HTTP ${res.status}): ${text.slice(0, 300)}`,
       );
+    }
+    // Defensive: a non-2xx status that still claims success is anomalous — refuse it.
+    if (!res.ok) {
+      throw new Error(`Tegro.Money API returned type=success on HTTP ${res.status} for ${endpoint} — refusing.`);
     }
     if (json.data === undefined) {
       throw new Error(`Tegro.Money API returned success with no data on ${endpoint}.`);

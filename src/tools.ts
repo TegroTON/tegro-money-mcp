@@ -56,7 +56,7 @@ export function registerTools(server: McpServer, client: TegroClient): void {
         "List payment orders for a shop. Returns id, amount, currency, status, payment system, email and dates.",
       inputSchema: {
         shop_id: z.string().optional().describe("Shop ID (public key). Optional if TEGRO_SHOP_ID is set."),
-        page: z.number().optional().describe("Page number (1-based), for pagination."),
+        page: z.number().int().positive().optional().describe("Page number (1-based), for pagination."),
       },
     },
     async ({ shop_id, page }) => {
@@ -97,7 +97,7 @@ export function registerTools(server: McpServer, client: TegroClient): void {
       description: "List payout (withdrawal) requests for a shop, with their status and amounts.",
       inputSchema: {
         shop_id: z.string().optional().describe("Shop ID (public key). Optional if TEGRO_SHOP_ID is set."),
-        page: z.number().optional().describe("Page number (1-based)."),
+        page: z.number().int().positive().optional().describe("Page number (1-based)."),
       },
     },
     async ({ shop_id, page }) => {
